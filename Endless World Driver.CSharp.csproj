@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\SkyManager.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
+    <Compile Include="Assets\Scripts\TweenFunctions.cs" />
     <Compile Include="Assets\Scripts\WorldTimeManager.cs" />
   </ItemGroup>
   <ItemGroup>
