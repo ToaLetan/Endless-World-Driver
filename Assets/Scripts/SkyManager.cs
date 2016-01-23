@@ -43,6 +43,8 @@ public class SkyManager : MonoBehaviour
 
         worldTimeManager = WorldTimeManager.Instance;
         worldTimeManager.HourTimer.OnTimerComplete += UpdateSky;
+        worldTimeManager.OnLunarPhaseChange += UpdateMoonSprite;
+        worldTimeManager.OnSunChange += UpdateSunSprite;
 
         sun_Moon_RotationSpeed = 360 / WorldTimeManager.DAY_LENGTH_SECONDS;
         tweenSpeed = 24 / WorldTimeManager.DAY_LENGTH_SECONDS; //Fade transitions last the entire hour
@@ -61,6 +63,7 @@ public class SkyManager : MonoBehaviour
         currentSkyTint = SKY_CLEAR_DAY; //Starting at day since world time starts at 8 AM
         currentGroundTint = GROUND_CLEAR_DAY;
 
+        RandomizeWorldTimeInfo();
         SetSky();
         //UpdateSky();
         SetCelestialRotation();
@@ -89,25 +92,23 @@ public class SkyManager : MonoBehaviour
 
     private void UpdateSky()
     {
-        Debug.Log(worldTimeManager.Hour);
-
         //Set the sky tint based on time of day. Eventually make this gradually tween.
-        if (worldTimeManager.Hour == 17) //SUNSET: 5 PM
+        if (worldTimeManager.Hour == WorldTimeManager.SUNSET_TIME) //SUNSET: 5 PM
         {
             skyColourShift = new ColourTween(currentSkyTint, SKY_SUNSET, tweenSpeed);
             groundColourShift = new ColourTween(currentGroundTint, GROUND_SUNSET, tweenSpeed);
         }  
-        else if (worldTimeManager.Hour == 18) //NIGHT: 6 PM
+        else if (worldTimeManager.Hour == WorldTimeManager.NIGHT_START_TIME) //NIGHT: 6 PM
         {
             skyColourShift = new ColourTween(currentSkyTint, SKY_NIGHT, tweenSpeed);
             groundColourShift = new ColourTween(currentGroundTint, GROUND_NIGHT, tweenSpeed);
         }
-        else if (worldTimeManager.Hour == 6) //SUNRISE: 5 AM
+        else if (worldTimeManager.Hour == WorldTimeManager.SUNRISE_TIME) //SUNRISE: 6 AM
         {
             skyColourShift = new ColourTween(currentSkyTint, SKY_SUNRISE, tweenSpeed);
             groundColourShift = new ColourTween(currentGroundTint, GROUND_SUNRISE, tweenSpeed);
         }
-        else if(worldTimeManager.Hour == 7)//DAY: 6 AM
+        else if(worldTimeManager.Hour == WorldTimeManager.DAY_START_TIME)//DAY: 7 AM
         {
             skyColourShift = new ColourTween(currentSkyTint, SKY_CLEAR_DAY, tweenSpeed);
             groundColourShift = new ColourTween(currentGroundTint, GROUND_CLEAR_DAY, tweenSpeed);
@@ -127,17 +128,17 @@ public class SkyManager : MonoBehaviour
 
     private void SetSky()
     {
-        if(worldTimeManager.Hour == 17) //Sunset
+        if(worldTimeManager.Hour == WorldTimeManager.SUNSET_TIME) //Sunset
         {
             currentSkyTint = SKY_SUNSET;
             currentGroundTint = GROUND_SUNSET;
         }
-        else if(worldTimeManager.Hour >= 18 || worldTimeManager.Hour <= 4) //Night
+        else if(worldTimeManager.Hour >= WorldTimeManager.NIGHT_START_TIME || worldTimeManager.Hour <= WorldTimeManager.SUNRISE_TIME - 1) //Night
         {
             currentSkyTint = SKY_NIGHT;
             currentGroundTint = GROUND_NIGHT;
         }
-        else if(worldTimeManager.Hour == 5) //Sunrise
+        else if(worldTimeManager.Hour == WorldTimeManager.SUNRISE_TIME) //Sunrise
         {
             currentSkyTint = SKY_SUNRISE;
             currentGroundTint = GROUND_SUNRISE;
@@ -159,5 +160,84 @@ public class SkyManager : MonoBehaviour
         celestialBodiesObj.transform.localRotation = Quaternion.Euler(0, 0, angle);
         sunObj.transform.rotation = Quaternion.Euler(0, 0, 0);
         moonObj.transform.rotation = Quaternion.Euler(0, 0, 0);
+    }
+
+    private void RandomizeWorldTimeInfo()
+    {
+        worldTimeManager.Hour = Random.Range(1, 24);
+        worldTimeManager.CurrentLunarPhase = (WorldTimeManager.LunarPhase)Random.Range((int)WorldTimeManager.LunarPhase.NEW, (int)WorldTimeManager.LunarPhase.WANING_CRESCENT + 1);
+
+        Debug.Log(worldTimeManager.CurrentLunarPhase);
+        UpdateMoonSprite();
+    }
+
+    private void UpdateMoonSprite()
+    {
+        SetCelestialSprite(moonRenderer);
+    }
+
+    private void UpdateSunSprite()
+    {
+        SetCelestialSprite(sunRenderer);
+    }
+
+    private void SetCelestialSprite(SpriteRenderer rendererToSet)
+    {
+        Sprite newSprite = null;
+        string spriteName = "";
+
+        if(rendererToSet == moonRenderer)
+        {
+            switch(worldTimeManager.CurrentLunarPhase)
+            {
+                case WorldTimeManager.LunarPhase.NEW:
+                    spriteName = "New";
+                    break;
+                case WorldTimeManager.LunarPhase.WAXING_CRESCENT:
+                    spriteName = "WaxingCrescent";
+                    break;
+                case WorldTimeManager.LunarPhase.FIRST_QUARTER:
+                    spriteName = "FirstQuarter";
+                    break;
+                case WorldTimeManager.LunarPhase.WAXING_GIBBOUS:
+                    spriteName = "WaxingGibbous";
+                    break;
+                case WorldTimeManager.LunarPhase.FULL:
+                    spriteName = "Full";
+                    break;
+                case WorldTimeManager.LunarPhase.WANING_GIBBOUS:
+                    spriteName = "WaningGibbous";
+                    break;
+                case WorldTimeManager.LunarPhase.LAST_QUARTER:
+                    spriteName = "LastQuarter";
+                    break;
+                case WorldTimeManager.LunarPhase.WANING_CRESCENT:
+                    spriteName = "WaningCrescent";
+                    break;
+                default:
+                    break;
+            }
+            newSprite = SpriteSheetLoader.LoadSpriteFromSheet("Sprites/Moon_Sun_Sheet", "Moon_" + spriteName);
+        }
+        else if (rendererToSet == sunRenderer)
+        {
+            if (worldTimeManager.Hour == WorldTimeManager.SUNSET_TIME)
+            {
+                if(rendererToSet.sprite.name.Contains("Cool"))
+                    spriteName = "CoolSetting";
+                else
+                    spriteName = "Setting";
+            }
+            else
+            {
+                if (Random.value < 0.2f) //20% chance for the sun to be extra cool.
+                    spriteName = "Cool";
+                else
+                    spriteName = "Day"; //Use the standard sprite
+            }
+
+            newSprite = SpriteSheetLoader.LoadSpriteFromSheet("Sprites/Moon_Sun_Sheet", "Sun_" + spriteName);
+        }
+        rendererToSet.sprite = newSprite;
     }
 }

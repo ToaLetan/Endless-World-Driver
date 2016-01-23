@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e1ec060635f4c2141a4fb73a58fa0c15
-timeCreated: 1453511390
+timeCreated: 1453525250
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -12,7 +12,7 @@ TextureImporter:
     21300010: Moon_WaningGibbous
     21300012: Moon_LastQuarter
     21300014: Moon_WaningCrescent
-    21300016: Sun
+    21300016: Sun_Day
     21300018: Sun_Setting
     21300020: Sun_Cool
     21300022: Sun_CoolSetting
@@ -214,7 +214,7 @@ TextureImporter:
         - {x: 18, y: -10}
         - {x: 18, y: 11}
         - {x: 9, y: 18}
-    - name: Sun
+    - name: Sun_Day
       rect:
         serializedVersion: 2
         x: 1
