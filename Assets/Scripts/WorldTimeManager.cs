@@ -3,7 +3,7 @@ using System.Collections;
 
 public class WorldTimeManager
 {
-    public const float DAY_LENGTH_SECONDS = 5.0f;
+    public const float DAY_LENGTH_SECONDS = 5.0f; //60.0f
     public const int SUNSET_TIME = 17;
     public const int NIGHT_START_TIME = 18;
     public const int SUNRISE_TIME = 6;

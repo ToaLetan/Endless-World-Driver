@@ -49,7 +49,7 @@ public class SkyManager : MonoBehaviour
         sun_Moon_RotationSpeed = 360 / WorldTimeManager.DAY_LENGTH_SECONDS;
         tweenSpeed = 24 / WorldTimeManager.DAY_LENGTH_SECONDS; //Fade transitions last the entire hour
 
-        celestialBodiesObj = gameObject.transform.FindChild("Sun_Moon_Rotation").gameObject;
+        celestialBodiesObj = gameObject.transform.FindChild("Sun Moon Rotation").gameObject;
         sunObj = celestialBodiesObj.transform.FindChild("Sun").gameObject;
         moonObj = celestialBodiesObj.transform.FindChild("Moon").gameObject;
 
@@ -57,7 +57,7 @@ public class SkyManager : MonoBehaviour
         moonRenderer = celestialBodiesObj.transform.FindChild("Moon").GetComponent<SpriteRenderer>();
 
         skyRenderer = gameObject.GetComponent<SpriteRenderer>();
-        groundOverlayRenderer = gameObject.transform.FindChild("Ground_Overlay").GetComponent<SpriteRenderer>();
+        groundOverlayRenderer = gameObject.transform.FindChild("Ground Overlay").GetComponent<SpriteRenderer>();
         groundOverlayRenderer.enabled = true;
 
         currentSkyTint = SKY_CLEAR_DAY; //Starting at day since world time starts at 8 AM
@@ -230,7 +230,7 @@ public class SkyManager : MonoBehaviour
             }
             else
             {
-                if (Random.value < 0.2f) //20% chance for the sun to be extra cool.
+                if (Random.value < 0.05f) //5% chance for the sun to be extra cool.
                     spriteName = "Cool";
                 else
                     spriteName = "Day"; //Use the standard sprite
