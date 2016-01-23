@@ -107,10 +107,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Endless World Driver.CSharp.Plugins.csproj">
-      <Project>{829DF74C-BE43-BA45-E179-DE28D64D136F}</Project>
-      <Name>Endless World Driver.CSharp.Plugins</Name>
-    </ProjectReference>
     <ProjectReference Include="Endless World Driver.CSharp.csproj">
       <Project>{CA766D7C-29AD-0EE0-916C-7E793BB9F68B}</Project>
       <Name>Endless World Driver.CSharp</Name>
@@ -118,14 +114,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
-    <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
-    <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
-    <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
-    <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
-    <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

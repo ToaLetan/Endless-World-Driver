@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endless World Driver.CSharp.Plugins", "Endless World Driver.CSharp.Plugins.csproj", "{829DF74C-BE43-BA45-E179-DE28D64D136F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endless World Driver.CSharp", "Endless World Driver.CSharp.csproj", "{CA766D7C-29AD-0EE0-916C-7E793BB9F68B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endless World Driver.CSharp.Editor", "Endless World Driver.CSharp.Editor.csproj", "{0F156C3C-802B-0858-D8E8-CB0427791CD0}"
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{829DF74C-BE43-BA45-E179-DE28D64D136F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{829DF74C-BE43-BA45-E179-DE28D64D136F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{829DF74C-BE43-BA45-E179-DE28D64D136F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{829DF74C-BE43-BA45-E179-DE28D64D136F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CA766D7C-29AD-0EE0-916C-7E793BB9F68B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CA766D7C-29AD-0EE0-916C-7E793BB9F68B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA766D7C-29AD-0EE0-916C-7E793BB9F68B}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class WorldTimeManager
 {
-    private const float DAY_LENGTH_SECONDS = 6.0f;
+    public const float DAY_LENGTH_SECONDS = 10.0f;
 
     private static WorldTimeManager instance = null;
 
@@ -11,7 +11,7 @@ public class WorldTimeManager
 
     private float hourLength = 0.0f;
 
-    private int hour = 8; //The current hour from 1-23
+    private int hour = 20; //The current hour from 1-23
 
     public static WorldTimeManager Instance
     {

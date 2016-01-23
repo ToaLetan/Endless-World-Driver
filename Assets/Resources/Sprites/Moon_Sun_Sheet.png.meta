@@ -1,0 +1,293 @@
+fileFormatVersion: 2
+guid: e1ec060635f4c2141a4fb73a58fa0c15
+timeCreated: 1453511390
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Moon_New
+    21300002: Moon_WaxingCrescent
+    21300004: Moon_FirstQuarter
+    21300006: Moon_WaxingGibbous
+    21300008: Moon_Full
+    21300010: Moon_WaningGibbous
+    21300012: Moon_LastQuarter
+    21300014: Moon_WaningCrescent
+    21300016: Sun
+    21300018: Sun_Setting
+    21300020: Sun_Cool
+    21300022: Sun_CoolSetting
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 1
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Moon_New
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 39
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 18}
+        - {x: -18, y: 12}
+        - {x: -18, y: -17}
+        - {x: -14, y: -18}
+        - {x: 14, y: -18}
+        - {x: 18, y: -10}
+        - {x: 18, y: 11}
+        - {x: 9, y: 18}
+    - name: Moon_WaxingCrescent
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 39
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 18}
+        - {x: -18, y: 12}
+        - {x: -18, y: -17}
+        - {x: -14, y: -18}
+        - {x: 14, y: -18}
+        - {x: 18, y: -10}
+        - {x: 18, y: 11}
+        - {x: 9, y: 18}
+    - name: Moon_FirstQuarter
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 39
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 18}
+        - {x: -18, y: 12}
+        - {x: -18, y: -17}
+        - {x: -14, y: -18}
+        - {x: 14, y: -18}
+        - {x: 18, y: -10}
+        - {x: 18, y: 11}
+        - {x: 9, y: 18}
+    - name: Moon_WaxingGibbous
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 39
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 18}
+        - {x: -18, y: 12}
+        - {x: -18, y: -17}
+        - {x: -14, y: -18}
+        - {x: 14, y: -18}
+        - {x: 18, y: -10}
+        - {x: 18, y: 11}
+        - {x: 9, y: 18}
+    - name: Moon_Full
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 39
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 18}
+        - {x: -18, y: 12}
+        - {x: -18, y: -17}
+        - {x: -14, y: -18}
+        - {x: 14, y: -18}
+        - {x: 18, y: -10}
+        - {x: 18, y: 11}
+        - {x: 9, y: 18}
+    - name: Moon_WaningGibbous
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 39
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 18}
+        - {x: -18, y: 12}
+        - {x: -18, y: -17}
+        - {x: -14, y: -18}
+        - {x: 14, y: -18}
+        - {x: 18, y: -10}
+        - {x: 18, y: 11}
+        - {x: 9, y: 18}
+    - name: Moon_LastQuarter
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 39
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 18}
+        - {x: -18, y: 12}
+        - {x: -18, y: -17}
+        - {x: -14, y: -18}
+        - {x: 14, y: -18}
+        - {x: 18, y: -10}
+        - {x: 18, y: 11}
+        - {x: 9, y: 18}
+    - name: Moon_WaningCrescent
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 39
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 18}
+        - {x: -18, y: 12}
+        - {x: -18, y: -17}
+        - {x: -14, y: -18}
+        - {x: 14, y: -18}
+        - {x: 18, y: -10}
+        - {x: 18, y: 11}
+        - {x: 9, y: 18}
+    - name: Sun
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 18}
+        - {x: -15, y: 18}
+        - {x: -18, y: 9}
+        - {x: -18, y: -18}
+        - {x: 14, y: -18}
+        - {x: 18, y: -10}
+        - {x: 18, y: 11}
+    - name: Sun_Setting
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 1
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 18}
+        - {x: -15, y: 18}
+        - {x: -18, y: 9}
+        - {x: -18, y: -18}
+        - {x: 14, y: -18}
+        - {x: 18, y: -10}
+        - {x: 18, y: 11}
+    - name: Sun_Cool
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 1
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 18}
+        - {x: -15, y: 18}
+        - {x: -18, y: 9}
+        - {x: -18, y: -18}
+        - {x: 14, y: -18}
+        - {x: 18, y: -10}
+        - {x: 18, y: 11}
+    - name: Sun_CoolSetting
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 1
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 18}
+        - {x: -15, y: 18}
+        - {x: -18, y: 9}
+        - {x: -18, y: -18}
+        - {x: 14, y: -18}
+        - {x: 18, y: -10}
+        - {x: 18, y: 11}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
