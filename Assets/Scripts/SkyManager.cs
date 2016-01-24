@@ -3,19 +3,24 @@ using System.Collections;
 
 public class SkyManager : MonoBehaviour
 {
+    private const float STARS_ROTATION_SPEED = 0.025f;
+
     private WorldTimeManager worldTimeManager = null;
 
     private GameObject celestialBodiesObj = null;
     private GameObject sunObj = null;
     private GameObject moonObj = null;
+    private GameObject starsObj = null;
 
     private SpriteRenderer skyRenderer = null;
     private SpriteRenderer groundOverlayRenderer = null;
     private SpriteRenderer sunRenderer = null;
     private SpriteRenderer moonRenderer = null;
+    private SpriteRenderer starsRenderer = null;
 
     private ColourTween skyColourShift = null;
     private ColourTween groundColourShift = null;
+    private ColourTween starsAlphaShift = null;
 
     //Sky Colour Tints
     private Color SKY_CLEAR_DAY = new Color(0.28f, 0.55f, 0.94f);
@@ -27,6 +32,9 @@ public class SkyManager : MonoBehaviour
     private Color GROUND_SUNSET = new Color();
     private Color GROUND_SUNRISE = new Color();
     private Color GROUND_NIGHT = new Color();
+
+    private Color ALPHA = new Color(1, 1, 1, 1);
+    private Color NO_ALPHA = new Color(1, 1, 1, 0);
 
     private Color currentSkyTint;
     private Color currentGroundTint;
@@ -52,9 +60,11 @@ public class SkyManager : MonoBehaviour
         celestialBodiesObj = gameObject.transform.FindChild("Sun Moon Rotation").gameObject;
         sunObj = celestialBodiesObj.transform.FindChild("Sun").gameObject;
         moonObj = celestialBodiesObj.transform.FindChild("Moon").gameObject;
+        starsObj = gameObject.transform.FindChild("Stars").gameObject;
 
         sunRenderer = celestialBodiesObj.transform.FindChild("Sun").GetComponent<SpriteRenderer>();
         moonRenderer = celestialBodiesObj.transform.FindChild("Moon").GetComponent<SpriteRenderer>();
+        starsRenderer = starsObj.GetComponent<SpriteRenderer>();
 
         skyRenderer = gameObject.GetComponent<SpriteRenderer>();
         groundOverlayRenderer = gameObject.transform.FindChild("Ground Overlay").GetComponent<SpriteRenderer>();
@@ -87,6 +97,12 @@ public class SkyManager : MonoBehaviour
             currentGroundTint = groundColourShift.CurrentColour;
             groundOverlayRenderer.color = currentGroundTint;
         }
+        if(starsAlphaShift != null)
+        {
+            starsAlphaShift.Update();
+            starsRenderer.color = starsAlphaShift.CurrentColour;
+        }
+
         UpdateCelestialRotation();
     }
 
@@ -102,11 +118,14 @@ public class SkyManager : MonoBehaviour
         {
             skyColourShift = new ColourTween(currentSkyTint, SKY_NIGHT, tweenSpeed);
             groundColourShift = new ColourTween(currentGroundTint, GROUND_NIGHT, tweenSpeed);
+            starsRenderer.enabled = true;
+            starsAlphaShift = new ColourTween(NO_ALPHA, ALPHA, tweenSpeed);
         }
         else if (worldTimeManager.Hour == WorldTimeManager.SUNRISE_TIME) //SUNRISE: 6 AM
         {
             skyColourShift = new ColourTween(currentSkyTint, SKY_SUNRISE, tweenSpeed);
             groundColourShift = new ColourTween(currentGroundTint, GROUND_SUNRISE, tweenSpeed);
+            starsAlphaShift = new ColourTween(ALPHA, NO_ALPHA, tweenSpeed * 2);
         }
         else if(worldTimeManager.Hour == WorldTimeManager.DAY_START_TIME)//DAY: 7 AM
         {
@@ -124,6 +143,10 @@ public class SkyManager : MonoBehaviour
         celestialBodiesObj.transform.Rotate(new Vector3(0, 0, angle));
         sunObj.transform.rotation = Quaternion.Euler(0, 0, 0);
         moonObj.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        //Constantly slowly rotate the stars cuz space stops for nobody
+        float starsAngle = STARS_ROTATION_SPEED * Time.deltaTime;
+        starsObj.transform.Rotate(new Vector3(0, 0, STARS_ROTATION_SPEED));
     }
 
     private void SetSky()
@@ -137,6 +160,7 @@ public class SkyManager : MonoBehaviour
         {
             currentSkyTint = SKY_NIGHT;
             currentGroundTint = GROUND_NIGHT;
+            starsRenderer.enabled = true;
         }
         else if(worldTimeManager.Hour == WorldTimeManager.SUNRISE_TIME) //Sunrise
         {
